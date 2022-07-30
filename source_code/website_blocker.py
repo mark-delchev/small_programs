@@ -9,7 +9,7 @@ for website in range(number_of_websites):
     sites_blocked.append(website_to_block)
 block = False
 print(*sites_blocked, sep=", ")
-answer = input("Are you sure you want to block these websites? ")
+answer = input("Are you sure you want to block these websites?(If your answer is no the sites will be unblocked) ")
 if answer.lower() == "yes":
     block = True
 else:
