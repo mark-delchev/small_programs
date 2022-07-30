@@ -1,14 +1,19 @@
 #The code bellow can be used if you want to block the websites for a certain amount of time
 #from datetime import datetime
 #end_time = datetime(2030, 6, 6, 20)
-
+sites_blocked = []
+user = input("How many websites do you want to block? ")
+number_of_websites = int(user)
+for website in range(number_of_websites):
+    website_to_block = input()
+    sites_blocked.append(website_to_block)
 block = False
-answer = input("Do you want to block the stupid bulgarian news sites? ")
+print(*sites_blocked, sep=", ")
+answer = input("Are you sure you want to block these websites? ")
 if answer.lower() == "yes":
     block = True
 else:
     print("unblocking...")
-sites_blocked = ["dir.bg", "www.dir.bg", "btvnovinite.bg", "www.btvnovinite.bg", "nova.bg", "www.nova.bg","bntnews.bg", "www.bntnews.bg", "dnevnik.bg", "www.dnevnik.bg"]
 
 hosts_path = r"C:\Windows\System32\drivers\etc\hosts"
 redirect = "127.0.0.1"
