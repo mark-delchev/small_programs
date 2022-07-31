@@ -21,14 +21,14 @@ redirect = "127.0.0.1"
 
 def block_sites():
     if block:
-        print("block sites")
+        print("The websites were blocked")
         with open(hosts_path, "r+") as hostsfile:
             hosts_content = hostsfile.read()
             for site in sites_blocked:
                 if site not in hosts_content:
                     hostsfile.write(redirect + " " + site + "\n")
     else:
-        print("unblock sites")
+        print("The websites were unblocked")
         with open(hosts_path, "r+") as hostsfile:
             lines = hostsfile.readlines()
             hostsfile.seek(0)
