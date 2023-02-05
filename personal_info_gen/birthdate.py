@@ -8,6 +8,7 @@ class Person:
     def __init__(self):
         self.name = ""
         self.birthdate = ""
+        self.personal_number = ""
 
     def gen_name(self, transliterate):
         # Generating a name with faker library
@@ -55,3 +56,14 @@ class Person:
         self.birthdate = datetime.datetime(year, month, day, hour, minute, second)
         return self.birthdate
 
+    def gen_personal_number(self):
+        birthdate_lst = str(self.birthdate).split("-")
+        year = birthdate_lst[0][2:]
+        month = birthdate_lst[1]
+        day = birthdate_lst[2][:2]
+        self.personal_number += year
+        self.personal_number += month
+        self.personal_number += day
+        for i in range(4):
+            self.personal_number += str(random.randint(0, 9))
+        print(self.personal_number)
