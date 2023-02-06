@@ -66,4 +66,4 @@ class Person:
         self.personal_number += day
         for i in range(4):
             self.personal_number += str(random.randint(0, 9))
-        print(self.personal_number)
+        return self.personal_number
