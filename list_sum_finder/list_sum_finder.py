@@ -1,4 +1,4 @@
-class Solution:
+class TwoSum:
     def __init__(self):
         self.lst = []
 
