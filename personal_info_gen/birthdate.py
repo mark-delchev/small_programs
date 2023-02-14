@@ -9,6 +9,7 @@ class Person:
         self.name = ""
         self.birthdate = ""
         self.personal_number = ""
+        self.city = ""
 
     def gen_name(self, transliterate):
         # Generating a name with faker library
@@ -67,3 +68,33 @@ class Person:
         for i in range(4):
             self.personal_number += str(random.randint(0, 9))
         return self.personal_number
+
+    def gen_city(self):
+
+        # List of Bulgarian cities
+        bulgarian_cities = ["Sofia", "Plovdiv", "Varna", "Burgas", "Ruse", "Stara Zagora", "Pleven", "Sliven",
+                            "Dobrich", "Shumen", "Pernik", "Haskovo", "Yambol", "Blagoevgrad", "Veliko Tarnovo",
+                            "Gabrovo", "Vratsa", "Kardzhali", "Kyustendil", "Montana", "Lovech", "Razgrad", "Silistra",
+                            "Targovishte", "Asenovgrad", "Dimitrovgrad", "Dupnitsa", "Gorna Oryahovitsa", "Kazanlak",
+                            "Lom", "Nova Zagora", "Petrich", "Popovo", "Samokov", "Sevlievo", "Simitli", "Svilengrad",
+                            "Troyan", "Velingrad"]
+
+        # List of the top 50 most populated cities in Europe and North America
+        top_cities = ["Moscow", "Istanbul", "Paris", "London", "Madrid", "Barcelona", "Berlin", "Milan", "Rome",
+                      "Prague", "Vienna", "Munich", "Amsterdam", "Brussels", "Stockholm", "Copenhagen", "Hamburg",
+                      "Minsk", "Warsaw", "Dublin", "Budapest", "Belgrade", "Kiev", "Bucharest", "Athens", "Toronto",
+                      "New York City", "Los Angeles", "Chicago", "Houston", "Philadelphia", "Phoenix", "San Antonio",
+                      "San Diego", "Dallas", "San Jose", "Boston", "Washington", "Seattle", "Denver", "Atlanta",
+                      "Miami", "Toronto", "Montreal", "Vancouver", "Ottawa", "Calgary", "Edmonton", "Quebec City"]
+
+        # Randomly choose a city
+        if random.random() < 0.05:
+            # 5% chance of returning a top city
+            city = random.choice(top_cities)
+        else:
+            # 95% chance of returning a Bulgarian city
+            city = random.choice(bulgarian_cities)
+
+        self.city = city
+        return self.city
+
