@@ -1,5 +1,6 @@
 import random
 import datetime
+import numpy as np
 from faker import Faker
 from transliterate import translit
 
@@ -10,6 +11,7 @@ class Person:
         self.birthdate = ""
         self.personal_number = ""
         self.city = ""
+        self.money = ""
 
     def gen_name(self, transliterate):
         # Generating a name with faker library
@@ -97,4 +99,14 @@ class Person:
 
         self.city = city
         return self.city
+
+    def gen_wealth(self):
+        mean = 10.0  # equivalent to $10,000
+        stddev = 0.5
+
+        # generate a random bank balance based on the log-normal distribution
+        bank_balance = np.exp(random.normalvariate(mean, stddev))
+
+        self.money = "Bank balance: ${:.2f}".format(bank_balance)
+        return self.money
 
