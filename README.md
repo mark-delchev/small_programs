@@ -7,6 +7,6 @@ A list of small programs I have made:
   <li><a href = "https://github.com/mark-delchev/Programs/tree/main/cyrillic_name_generator">Cyrillic name generator</a> (using faker and transliterate libraries)</li>
 </ul>
 <ul>
-  <li><a href = "https://github.com/mark-delchev/small_programs/tree/main/password_gen">Password checker</a> (included requirements for one special character, number and capital letter)</li>
+  <li><a href = "https://github.com/mark-delchev/small_programs/tree/main/password_gen">Password checker and generator</a> (included requirements for one special character, number and capital letter)</li>
 </ul>
 
