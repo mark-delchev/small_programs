@@ -12,6 +12,8 @@ class Person:
         self.personal_number = ""
         self.city = ""
         self.money = ""
+        self.email = ""
+        self.name_trans = ""
 
     def gen_name(self, transliterate):
         # Generating a name with faker library
@@ -24,8 +26,8 @@ class Person:
             self.name = " ".join(name_lst)
         # Transliterating the name from cyrillic to latin script with transliterate library
         if transliterate:
-            name_trans = translit(self.name, 'bg', reversed=True)
-            return name_trans
+            self.name_trans = translit(self.name, 'bg', reversed=True)
+            return self.name_trans
         else:
             return self.name
 
@@ -109,4 +111,16 @@ class Person:
 
         self.money = "Bank balance: ${:.2f}".format(bank_balance)
         return self.money
+
+    def gen_mail(self):
+        domains = ['mail.bg', 'abv.bg', 'google.com', 'yahoo.com', 'hotmail.com']
+        names = self.name_trans.split(" ")
+        for i in range(len(names)):
+            self.email += names[i].lower()
+            if names[i] != names[-1]:
+                self.email += "."
+        self.email += "@"
+        self.email += domains[random.randint(0, 4)]
+        return self.email
+
 
