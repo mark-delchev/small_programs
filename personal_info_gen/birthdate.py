@@ -97,7 +97,9 @@ class Person:
             city = random.choice(top_cities)
         else:
             # 95% chance of returning a Bulgarian city
-            city = random.choice(bulgarian_cities)
+            city_weights = [0.35, 0.2, 0.15, 0.15, 0.15]  # weights for the first 5 Bulgarian cities
+            city_weights.extend([0.05] * (len(bulgarian_cities) - 5))  # equal weights for the rest of the cities
+            city = random.choices(bulgarian_cities, weights=city_weights)[0]
 
         self.city = city
         return self.city
@@ -113,14 +115,20 @@ class Person:
         return self.money
 
     def gen_mail(self):
-        domains = ['mail.bg', 'abv.bg', 'google.com', 'yahoo.com', 'hotmail.com']
+        domains = ['abv.bg', 'gmail.com', 'mail.bg', 'yahoo.com', 'hotmail.com']
         names = self.name_trans.split(" ")
         for i in range(len(names)):
             self.email += names[i].lower()
             if names[i] != names[-1]:
                 self.email += "."
         self.email += "@"
-        self.email += domains[random.randint(0, 4)]
+        domain_seed = random.randint(0, 10)
+        if 0 <= domain_seed < 6:
+            self.email += domains[1]
+        elif 6 <= domain_seed < 8:
+            self.email += domains[0]
+        else:
+            self.email += domains[random.randint(2, 4)]
         return self.email
 
 
