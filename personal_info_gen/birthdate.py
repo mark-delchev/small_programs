@@ -14,6 +14,7 @@ class Person:
         self.money = ""
         self.email = ""
         self.name_trans = ""
+        self.job = ""
 
     def gen_name(self, transliterate):
         # Generating a name with faker library
@@ -130,5 +131,20 @@ class Person:
         else:
             self.email += domains[random.randint(2, 4)]
         return self.email
+
+    def gen_job(self):
+        professions = ['accountant', 'architect', 'chef',
+                       'dentist', 'engineer', 'financial analyst',
+                       'graphic designer', 'human resources manager',
+                       'journalist', 'lawyer', 'marketing manager',
+                       'nurse', 'pharmacist', 'physician', 'programmer',
+                       'real estate agent', 'sales representative',
+                       'teacher', 'veterinarian', 'web developer']
+
+        random_profession = random.choice(professions)
+        self.job = random_profession
+        return self.job
+
+
 
 
