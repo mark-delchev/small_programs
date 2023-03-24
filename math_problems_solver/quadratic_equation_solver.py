@@ -4,11 +4,11 @@ b = values_lst[1]
 c = values_lst[2]
 
 if a > 0 and b > 0 and c > 0:
-    print(f"Equation: {a}x^2 + {b}x + {c}")
+    print(f"Equation: {a}x^2 + {b}x + {c} = 0")
 elif b < 0:
-    print(f"Equation: {a}x^2 - {-b}x + {c}")
+    print(f"Equation: {a}x^2 - {-b}x + {c} = 0")
 elif c < 0:
-    print(f"Equation: {a}x**2 + {b}x - {-c}")
+    print(f"Equation: {a}x**2 + {b}x - {-c} = 0")
 
 d = b ** 2 - 4 * a * c
 print(d)
